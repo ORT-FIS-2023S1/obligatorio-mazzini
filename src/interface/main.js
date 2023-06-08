@@ -11,7 +11,7 @@ btnAdd.addEventListener('click', () => {
   const newCountry = new Country(inpName.value);
   newCountry.setCapital(inpCapital.value);
   mainCountryList.add(newCountry);
-  console.log(newCountry.toString());
+  console.log(newCountry.presentar());
   loadCountryList();
 } );
 
@@ -24,7 +24,7 @@ function loadCountryList(){
 
     let infocountry = document.createElement("div")
     infocountry.className = "infocountry";
-    infocountry.innerHTML = country.toString();
+    infocountry.innerHTML = country.presentar();
     seccountries.appendChild(infocountry);
 
     let saltoLinea = document.createElement('br');
