@@ -12,20 +12,22 @@
 
 <body>
   <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #1B5E20;">
-    <div class="container">
-      <a class="navbar-brand" href="#">Comedor Escolar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1B5E20;">
+    <div class="container"> <!-- El container contiene el contenido de la navBar en un contenedor en el medio, impidiendo que se extienda a todo el largo de la pagina -->
+      <a class="navbar-brand" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span> <!-- Agrega icono al boton del toggler -->
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+      <div class="collapse navbar-collapse" id="navmenu"> <!-- Para que la navBar colapse en tamaños de pantalla más chicos, y su contenido quede dentro de un botón -->
+        <ul class="navbar-nav ms-auto"> <!-- ms-auto alinea el contenido a la derecha -->
+          <li class="nav-item"> <!-- Todos los items de la navBar necesitan la esta clase -->
+            <a class="nav-link" href="#menu">Menu</a> <!-- La clase nav-link debe estar para considerarse un link -->
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link" href="#carrito">Carrito</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="#historial">Historial de pedidos</a>
           </li>
         </ul>
       </div>
