@@ -15,7 +15,7 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color: #1B5E20;" id="navBar">
     <div class="container"> <!-- El container contiene el contenido de la navBar en un contenedor en el medio, impidiendo que se extienda a todo el largo de la pagina -->
-      <a class="navbar-brand" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
+      <a class="navbar-brand btn" id="toHomePage" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span> <!-- Agrega icono al boton del toggler -->
       </button>
@@ -36,62 +36,64 @@
   </nav>
   <!-- /NAVBAR -->
 
-  <!-- Showcase -->
-  <section class="bg-dark text-light p-5 text-center text-sm-start" id="homePageShowcase">
-    <div class="conatiner">
-      <div class="d-sm-flex align-items-center justify-content-between"> <!-- Alinea dos cosas; El sm hace que pase a ser un flex box a partir del sm breakpoint -->
-        <div>
-          <h1>¡Pausa, <span class="text-primary">a comer!</span></h1>
-          <p class="lead my-4"> <!-- Clase lead agranda un poco el texto -->
-            Proponemos una forma económica y saludable para responder su pregunta de todos los días: 
-            <br>
-            "¿Qué voy a comer hoy?"
-          </p>
+  <section id="homePage">
+    <!-- Showcase -->
+    <section class="bg-dark text-light p-5 text-center text-sm-start" id="homePageShowcase">
+      <div class="conatiner">
+        <div class="d-sm-flex align-items-center justify-content-between"> <!-- Alinea dos cosas; El sm hace que pase a ser un flex box a partir del sm breakpoint -->
+          <div>
+            <h1>¡Pausa, <span class="text-primary">a comer!</span></h1>
+            <p class="lead my-4"> <!-- Clase lead agranda un poco el texto -->
+              Proponemos una forma económica y saludable para responder su pregunta de todos los días: 
+              <br>
+              "¿Qué voy a comer hoy?"
+            </p>
+          </div>
+          <img class="img-fluid w-50 d-none d-sm-block"  src="/src/interface/images/menuImg1.png" alt="Imagen de alimentos"> <!-- img-fluid deja la imagen dentro del container -->
         </div>
-        <img class="img-fluid w-50 d-none d-sm-block"  src="/src/interface/images/menuImg1.png" alt="Imagen de alimentos"> <!-- img-fluid deja la imagen dentro del container -->
       </div>
-    </div>
-  </section>
-  <!-- /Showcase -->
+    </section>
+    <!-- /Showcase -->
 
-  <!-- Botones -->
-  <section class="p-5" id="homePageButtons">
-    <div class="container">
-      <div class="row text-center gy-3"> <!-- Rodea nuestras columnas, se usa para crear la grilla -->
-        <div class="col-md-4"> <!-- Al agregar el -md va a mostrar las columnas a partir del brakpoint medium, sino las apila -->
-          <a href="#" class="btn btn-primary btn-lg">
-            <div class="h1">
-              Menú
-              <br>
-              <i class="bi bi-list"></i>
-            </div>
-          </a>
-        </div> 
-        <div class="col-md-4">
-          <a href="#" class="btn btn-primary btn-lg">
-            <div class="h1">
-              Carrito
-              <br>
-              <i class="bi bi-basket-fill"></i>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="#" class="btn btn-primary btn-lg">
-            <div class="h1">
-              Historial
-              <br>
-              <i class="bi bi-clock-history"></i>
-            </div>
-          </a>
+    <!-- Botones -->
+    <section class="p-5" id="homePageButtons">
+      <div class="container">
+        <div class="row text-center gy-3"> <!-- Rodea nuestras columnas, se usa para crear la grilla -->
+          <div class="col-md-4"> <!-- Al agregar el -md va a mostrar las columnas a partir del brakpoint medium, sino las apila -->
+            <a href="#" class="btn btn-primary btn-lg" id="hpMenuBtn">
+              <div class="h1">
+                Menú
+                <br>
+                <i class="bi bi-list"></i>
+              </div>
+            </a>
+          </div> 
+          <div class="col-md-4">
+            <a href="#" class="btn btn-primary btn-lg" id="hpCarritoBtn">
+              <div class="h1">
+                Carrito
+                <br>
+                <i class="bi bi-basket-fill"></i>
+              </div>
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="#" class="btn btn-primary btn-lg" id="hpHistorialBtn">
+              <div class="h1">
+                Historial
+                <br>
+                <i class="bi bi-clock-history"></i>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
+    <!-- /Botones -->
   </section>
-  <!-- /Botones -->
 
   <!-- Menu -->
-  <section id="menuPageSection">
+  <section id="menuPage">
     <div class="container text-center">
       <h2 class="text-primary pb-4">Menú</h2>
       <div class="row gy-3 pb-3">

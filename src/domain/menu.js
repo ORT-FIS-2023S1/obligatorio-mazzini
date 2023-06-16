@@ -1,19 +1,24 @@
 export class Menu {
 
-    constructor(aNombre) {
-      this.#nombre = aNombre;
+    constructor(menuNombre, menuPrecio) {
+      this.nombre = menuNombre;
+      this.precio = menuPrecio;
     }
   
     getNombre() {
-      return this.#nombre;
+      return this.nombre;
     }
   
-    setCapital(aCapital) {
-      this.#capital = aCapital
+    setNombre(menuNombre) {
+      this.nombre = menuNombre;
     }
   
-    presentar() {
-      return `País: ${this.#nombre} - capital: ${this.#capital}`;
+    getprecio() {
+      return this.precio;
+    }
+  
+    setNombre(menuPrecio) {
+      this.precio = menuPrecio;
     }
   
   }
