@@ -1,5 +1,5 @@
-import { Country } from "../domain/country.js";
-import { CountryList } from "../domain/countrylist.js";
+import { Country } from "./domain/country.js";
+import { CountryList } from "./domain/countrylist.js";
 
 const btnAdd = document.getElementById('btn_add');
 const inpName = document.getElementById('inp_name');

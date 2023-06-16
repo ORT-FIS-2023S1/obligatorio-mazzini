@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proyecto 2023S1</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color: #1B5E20;">
+    <div class="container"> <!-- El container contiene el contenido de la navBar en un contenedor en el medio, impidiendo que se extienda a todo el largo de la pagina -->
+      <a class="navbar-brand" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+        <span class="navbar-toggler-icon"></span> <!-- Agrega icono al boton del toggler -->
+      </button>
+      <div class="collapse navbar-collapse" id="navmenu"> <!-- Para que la navBar colapse en tamaños de pantalla más chicos, y su contenido quede dentro de un botón -->
+        <ul class="navbar-nav ms-auto"> <!-- ms-auto alinea el contenido a la derecha -->
+          <li class="nav-item"> <!-- Todos los items de la navBar necesitan la esta clase -->
+            <a class="nav-link" href="#menu">Menu</a> <!-- La clase nav-link debe estar para considerarse un link -->
+          </li>
+          <li class="nav-item"> 
+            <a class="nav-link" href="#carrito">Carrito</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#historial">Historial de pedidos</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- /NAVBAR -->
+
+  <!-- Showcase -->
+  <section class="bg-dark text-light p-5 text-center text-sm-start">
+    <div class="conatiner">
+      <div class="d-sm-flex align-items-center justify-content-between"> <!-- Alinea dos cosas; El sm hace que pase a ser un flex box a partir del sm breakpoint -->
+        <div>
+          <h1>¡Pausa, <span class="text-primary">a comer!</span></h1>
+          <p class="lead my-4"> <!-- Clase lead agranda un poco el texto -->
+            Proponemos una forma económica y saludable para responder su pregunta de todos los días: 
+            <br>
+            "¿Qué voy a comer hoy?"
+          </p>
+        </div>
+        <img class="img-fluid w-50 d-none d-sm-block"  src="/src/interface/images/menuImg1.png" alt=""> <!-- img-fluid deja la imagen dentro del container -->
+      </div>
+    </div>
+  </section>
+  <!-- /Showcase -->
+
+  <!-- Botones -->
+  <section class="p-5">
+    <div class="container">
+      <div class="row text-center gy-3"> <!-- Rodea nuestras columnas, se usa para crear la grilla -->
+        <div class="col-md-4"> <!-- Al agregar el -md va a mostrar las columnas a partir del brakpoint medium, sino las apila -->
+          <a href="#" class="btn btn-primary btn-lg">
+            <div class="h1">
+              Menú
+              <br>
+              <i class="bi bi-list"></i>
+            </div>
+          </a>
+        </div> 
+        <div class="col-md-4">
+          <a href="#" class="btn btn-primary btn-lg">
+            <div class="h1">
+              Carrito
+              <br>
+              <i class="bi bi-basket-fill"></i>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4">
+          <a href="#" class="btn btn-primary btn-lg">
+            <div class="h1">
+              Historial
+              <br>
+              <i class="bi bi-clock-history"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /Botones -->
+
+  <!-- Menu -->
+  <section>
+    <div class="container text-center">
+      <h1 class="text-primary pb-4">Menú</h1>
+      <div class="row gy-3 pb-3">
+        <div class="col-md-4">
+          <div class="card border-warning">
+            <img class="card-img-top bg-warning" src="interface/images/menuImages/ensaladaCrispy.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Ensalada Crispy</h5>
+              <p class="card-text">$200</p>
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-warning">
+            <img class="card-img-top bg-warning" src="interface/images/menuImages/hamburguesa.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Hamburguesa</h5>
+              <p class="card-text">$230</p>
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-warning">
+            <img class="card-img-top bg-warning" src="interface/images/menuImages/sandwich.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Sandwich</h5>
+              <p class="card-text">$200</p>
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row gy-3 pb-4">
+        <div class="col-md-4">
+          <div class="card border-warning">
+            <img class="card-img-top bg-warning" src="interface/images/menuImages/spaghetti.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Spaghetti</h5>
+              <p class="card-text">$250</p>
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-warning">
+            <img class="card-img-top bg-warning" src="interface/images/menuImages/empanadas.png" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Empanadas</h5>
+              <p class="card-text">$180</p>
+              <a href="#" class="btn btn-primary">Añadir al carrito</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Menu -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous">
+  </script>
+  <script src="main.js" type="module">
+
+  </script>
+</body>
+
+</html>
