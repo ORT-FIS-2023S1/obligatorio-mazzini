@@ -1,7 +1,5 @@
-// import { Menu } from "./domain/menu";
-
 window.addEventListener("load", inicio);
-
+ 
 function inicio() {
   document.getElementById("navBar").style.display = 'block';
   document.getElementById("homePage").style.display = 'block';
@@ -17,12 +15,26 @@ function inicio() {
   document.getElementById("menuNavbar").addEventListener("click", mostrarMenu);
   document.getElementById("carritoNavbar").addEventListener("click", mostrarCarrito);
   document.getElementById("historialNavbar").addEventListener("click", mostrarHistorial);
+  document.getElementById("m1").addEventListener("click", agregarM1);
+  document.getElementById("m2").addEventListener("click", agregarM2);
+  document.getElementById("m3").addEventListener("click", agregarM3);
+  document.getElementById("m4").addEventListener("click", agregarM4);
+  document.getElementById("m5").addEventListener("click", agregarM5);
 }
 
 const homePage = document.getElementById("homePage");
 const menuPage = document.getElementById("menu");
 const carritoPage = document.getElementById("carrito");
 const historialPage = document.getElementById("historial");
+
+const listaMenus = [{nombre: "Ensalada Crispy", descripcion: "Ensalada de hojas verdes, tomátes y pollo rebosado", precio: 200}, 
+  {nombre: "Hamburguesa", descripcion: "Hamburguesa con lechuga, tomáte, queso y cebolla", precio: 230}, 
+  {nombre: "Sandwich", descripcion: "Sandwich de jamón, queso, tomáte y lechuga", precio: 200}, 
+  {nombre: "Spaghetti", descripcion: "Spaghetti con salsa de tomate", precio: 250},
+  {nombre: "Empanadas", descripcion: "Empanadas de carne, capresse y verduras", precio: 180}
+];
+
+// Navegación
 
 function ocultarTodasLasSecciones() {
   homePage.style.display = "none";
@@ -50,42 +62,50 @@ function mostrarHistorial() {
   ocultarTodasLasSecciones();
   historialPage.style.display = 'block';
 }
+// Fin
 
+// Tabla Carrito
 
+function agregarEnCarrito(nombre, descripcion, precio) {
+  const carritoTabla = document.getElementById('carritoTabla');
+  const filaNueva = carritoTabla.insertRow();
+  const menuCell = filaNueva.insertCell();
+  const descrCell = filaNueva.insertCell();
+  const precioCell = filaNueva.insertCell();
 
-/*
-import { Country } from "./domain/country.js";
-import { CountryList } from "./domain/countrylist.js";
-
-const btnAdd = document.getElementById('btn_add');
-const inpName = document.getElementById('inp_name');
-const inpCapital = document.getElementById('inp_capital');
-
-const mainCountryList = new CountryList();
-
-btnAdd.addEventListener('click', () => {
-  const newCountry = new Country(inpName.value);
-  newCountry.setCapital(inpCapital.value);
-  mainCountryList.add(newCountry);
-  console.log(newCountry.presentar());
-  loadCountryList();
-} );
-
-function loadCountryList(){
-  const countries = mainCountryList.getCountries();
-  let seccountries = document.getElementById('seccountries');
-  
-  for(let i = 0; i < countries.length; i++) {
-    let country = countries[i];
-
-    let infocountry = document.createElement("div")
-    infocountry.className = "infocountry";
-    infocountry.innerHTML = country.presentar();
-    seccountries.appendChild(infocountry);
-
-    let saltoLinea = document.createElement('br');
-    seccountries.appendChild(saltoLinea);
-
-  }
+  menuCell.textContent = nombre;
+  descrCell.textContent = descripcion;
+  precioCell.textContent = precio;
 }
-*/
+
+function agregarM1() {
+  agregarEnCarrito(listaMenus[0].nombre, listaMenus[0].descripcion, listaMenus[0].precio);
+  precioTotal(listaMenus[0].precio);
+}
+
+function agregarM2() {
+  agregarEnCarrito(listaMenus[1].nombre, listaMenus[1].descripcion, listaMenus[1].precio);
+  precioTotal(listaMenus[1].precio);
+}
+
+function agregarM3() {
+  agregarEnCarrito(listaMenus[2].nombre, listaMenus[2].descripcion, listaMenus[2].precio);
+  precioTotal(listaMenus[2].precio);
+}
+
+function agregarM4() {
+  agregarEnCarrito(listaMenus[3].nombre, listaMenus[3].descripcion, listaMenus[3].precio);
+  precioTotal(listaMenus[3].precio);
+}
+
+function agregarM5() {
+  agregarEnCarrito(listaMenus[4].nombre, listaMenus[4].descripcion, listaMenus[4].precio);
+  precioTotal(listaMenus[4].precio);
+}
+
+var totalActual = 0;
+function precioTotal(precioMenu) {
+  totalActual += precioMenu;
+  document.getElementById("precioTotal").textContent = totalActual;
+}
+// Fin
