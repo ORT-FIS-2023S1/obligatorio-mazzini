@@ -65,7 +65,6 @@ function mostrarHistorial() {
 // Fin
 
 // Tabla Carrito
-
 function agregarEnCarrito(nombre, descripcion, precio) {
   const carritoTabla = document.getElementById('carritoTabla');
   const filaNueva = carritoTabla.insertRow();
