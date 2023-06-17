@@ -1,23 +1,32 @@
-import { Menu } from "./domain/menu";
+// import { Menu } from "./domain/menu";
 
 window.addEventListener("load", inicio);
 
-
 function inicio() {
-  document.getElementById("navBar");
-  document.getElementById("homePageShowcase");
-  document.getElementById("homePageButtons");
-  document.getElementById("menuPageSection");
+  document.getElementById("navBar").style.display = 'block';
+  document.getElementById("homePage").style.display = 'block';
+
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("carrito").style.display = "none";
+  document.getElementById("historial").style.display = "none";
+
   document.getElementById("hpMenuBtn").addEventListener("click", mostrarMenu);
-  //document.getElementById("hpCarritoBtn");
-  //document.getElementById("hpHistorialBtn");
+  document.getElementById("hpCarritoBtn").addEventListener("click", mostrarCarrito);
+  document.getElementById("hpHistorialBtn").addEventListener("click", mostrarHistorial);
   document.getElementById("toHomePage").addEventListener("click", mostrarHomePage);
 }
 
 const homePage = document.getElementById("homePage");
-const menuPage = document.getElementById("menuPage");
+const menuPage = document.getElementById("menu");
+const carritoPage = document.getElementById("carrito");
+const historialPage = document.getElementById("historial");
 
-
+function ocultarTodasLasSecciones() {
+  homePage.style.display = "none";
+  menuPage.style.display = "none";
+  carritoPage.style.display = "none";
+  historialPage.style.display = "none";
+}
 
 function mostrarHomePage() {
   ocultarTodasLasSecciones();
@@ -29,24 +38,17 @@ function mostrarMenu() {
   menuPage.style.display = 'block';
 }
 
-/*
 function mostrarCarrito() {
   ocultarTodasLasSecciones();
-  document.getElementById('carrito').style.display = 'block';
+  carritoPage.style.display = 'block';
 }
 
 function mostrarHistorial() {
   ocultarTodasLasSecciones();
-  document.getElementById('historial').style.display = 'block';
+  historialPage.style.display = 'block';
 }
-*/
 
-function ocultarTodasLasSecciones() {
-  var secciones = document.getElementsByTagName('section');
-  for (var i = 0; i < secciones.length; i++) {
-    secciones[i].style.display = 'none';
-  }
-}
+
 
 /*
 import { Country } from "./domain/country.js";
