@@ -20,20 +20,20 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color: #1B5E20;" id="navBar">
     <div class="container"> <!-- El container contiene el contenido de la navBar en un contenedor en el medio, impidiendo que se extienda a todo el largo de la pagina -->
-      <a class="navbar-brand btn" id="toHomePage" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
+      <a class="navbar-brand" id="toHomePage" role="button" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span> <!-- Agrega icono al boton del toggler -->
       </button>
       <div class="collapse navbar-collapse" id="navmenu"> <!-- Para que la navBar colapse en tamaños de pantalla más chicos, y su contenido quede dentro de un botón -->
         <ul class="navbar-nav ms-auto"> <!-- ms-auto alinea el contenido a la derecha -->
           <li class="nav-item"> <!-- Todos los items de la navBar necesitan la esta clase -->
-            <a class="nav-link" href="#menu">Menu</a> <!-- La clase nav-link debe estar para considerarse un link -->
+            <a class="nav-link" id="menuNavbar" role="button" href="#menu">Menu</a> <!-- La clase nav-link debe estar para considerarse un link -->
           </li>
           <li class="nav-item"> 
-            <a class="nav-link" href="#carrito">Carrito</a>
+            <a class="nav-link" id="carritoNavbar" role="button" href="#carrito">Carrito</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#historial">Historial de pedidos</a>
+            <a class="nav-link" id="historialNavbar" role="button" href="#historial">Historial de pedidos</a>
           </li>
         </ul>
       </div>

@@ -14,6 +14,9 @@ function inicio() {
   document.getElementById("hpCarritoBtn").addEventListener("click", mostrarCarrito);
   document.getElementById("hpHistorialBtn").addEventListener("click", mostrarHistorial);
   document.getElementById("toHomePage").addEventListener("click", mostrarHomePage);
+  document.getElementById("menuNavbar").addEventListener("click", mostrarMenu);
+  document.getElementById("carritoNavbar").addEventListener("click", mostrarCarrito);
+  document.getElementById("historialNavbar").addEventListener("click", mostrarHistorial);
 }
 
 const homePage = document.getElementById("homePage");
