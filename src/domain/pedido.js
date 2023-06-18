@@ -1,4 +1,3 @@
-
 export class Pedido {
   constructor(codigoPed, descrPed, fechaPed, costoPed) {
     this.codigo = codigoPed;
@@ -23,8 +22,23 @@ export class Pedido {
     return this.costo;
   }
 
-  crearPedido(cod, descr, fecha, costo) {
-    const p = new Pedido(cod, descr, fecha, costo);
-    return p;
+  setCodigo(codPed) {
+    if (codPed.length = 5) {
+      this.codigo = codPed;
+    } else {
+      throw new Error('El código debe tener 5 caracteres');
+    }
+  }
+
+  setDescipcion(descrPed) {
+    this.pedido = descrPed;
+  }
+
+  setFecha(fechaPed) {
+    this.fecha = fechaPed;
+  }
+
+  setCosto(costoPed) {
+    this.costo = costoPed;
   }
 }
