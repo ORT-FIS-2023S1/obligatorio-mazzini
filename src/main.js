@@ -1,13 +1,15 @@
 window.addEventListener("load", inicio);
+
+import { Pedido } from "../src/domain/pedido";
  
 function inicio() {
+  // Paginas visibles/no-visibles
   document.getElementById("navBar").style.display = 'block';
   document.getElementById("homePage").style.display = 'block';
-
   document.getElementById("menu").style.display = "none";
   document.getElementById("carrito").style.display = "none";
   document.getElementById("historial").style.display = "none";
-
+  // Cambios de pagina
   document.getElementById("hpMenuBtn").addEventListener("click", mostrarMenu);
   document.getElementById("hpCarritoBtn").addEventListener("click", mostrarCarrito);
   document.getElementById("hpHistorialBtn").addEventListener("click", mostrarHistorial);
@@ -15,6 +17,7 @@ function inicio() {
   document.getElementById("menuNavbar").addEventListener("click", mostrarMenu);
   document.getElementById("carritoNavbar").addEventListener("click", mostrarCarrito);
   document.getElementById("historialNavbar").addEventListener("click", mostrarHistorial);
+  // Botones del menu
   document.getElementById("m1").addEventListener("click", agregarM1);
   document.getElementById("m2").addEventListener("click", agregarM2);
   document.getElementById("m3").addEventListener("click", agregarM3);
@@ -27,15 +30,16 @@ const menuPage = document.getElementById("menu");
 const carritoPage = document.getElementById("carrito");
 const historialPage = document.getElementById("historial");
 
-const listaMenus = [{nombre: "Ensalada Crispy", descripcion: "Ensalada de hojas verdes, tomátes y pollo rebosado", precio: 200}, 
+const listaMenus = [
+  {nombre: "Ensalada Crispy", descripcion: "Ensalada de hojas verdes, tomátes y pollo rebosado", precio: 200}, 
   {nombre: "Hamburguesa", descripcion: "Hamburguesa con lechuga, tomáte, queso y cebolla", precio: 230}, 
   {nombre: "Sandwich", descripcion: "Sandwich de jamón, queso, tomáte y lechuga", precio: 200}, 
   {nombre: "Spaghetti", descripcion: "Spaghetti con salsa de tomate", precio: 250},
   {nombre: "Empanadas", descripcion: "Empanadas de carne, capresse y verduras", precio: 180}
 ];
 
-// Navegación
 
+// Navegación
 function ocultarTodasLasSecciones() {
   homePage.style.display = "none";
   menuPage.style.display = "none";
@@ -80,26 +84,31 @@ function agregarEnCarrito(nombre, descripcion, precio) {
 function agregarM1() {
   agregarEnCarrito(listaMenus[0].nombre, listaMenus[0].descripcion, listaMenus[0].precio);
   precioTotal(listaMenus[0].precio);
+  alert("¡Tu menú ha sido agregado al carrito correctamente!");
 }
 
 function agregarM2() {
   agregarEnCarrito(listaMenus[1].nombre, listaMenus[1].descripcion, listaMenus[1].precio);
   precioTotal(listaMenus[1].precio);
+  alert("¡Tu menú ha sido agregado al carrito correctamente!");
 }
 
 function agregarM3() {
   agregarEnCarrito(listaMenus[2].nombre, listaMenus[2].descripcion, listaMenus[2].precio);
   precioTotal(listaMenus[2].precio);
+  alert("¡Tu menú ha sido agregado al carrito correctamente!");
 }
 
 function agregarM4() {
   agregarEnCarrito(listaMenus[3].nombre, listaMenus[3].descripcion, listaMenus[3].precio);
   precioTotal(listaMenus[3].precio);
+  alert("¡Tu menú ha sido agregado al carrito correctamente!");
 }
 
 function agregarM5() {
   agregarEnCarrito(listaMenus[4].nombre, listaMenus[4].descripcion, listaMenus[4].precio);
   precioTotal(listaMenus[4].precio);
+  alert("¡Tu menú ha sido agregado al carrito correctamente!");
 }
 
 var totalActual = 0;
@@ -108,3 +117,11 @@ function precioTotal(precioMenu) {
   document.getElementById("precioTotal").textContent = totalActual;
 }
 // Fin
+
+const pedido = [{}];
+function realizarPedido() {
+
+}
+
+
+// Tabla Historial
