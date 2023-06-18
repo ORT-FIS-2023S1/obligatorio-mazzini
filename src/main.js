@@ -140,6 +140,7 @@ function precioTotal(precioMenu) {
 function limpiarTablaCarrito() {
   const tabla = document.getElementById('carritoTabla');
   document.getElementById('precioTotal').textContent = 0;
+  totalActual = 0;
   tabla.innerHTML = '';
 }
 
