@@ -1,36 +1,33 @@
 import {Pedido} from '../src/domain/pedido.js';
 
-const p1 = new Pedido('01234', 'Menu 1', '18/06/2023', 200);
+let pedido;
 
 describe('Pedido', () => {
-  describe('Get Codigo', () => {
-    test('Debe devolver el código del pedido', () => {
-      expect(p1.getCodigo()).toEqual('01234');
-    });
+  beforeEach(() => {
+    pedido = new Pedido('01234', 'Menu 1', '18/06/2023', 200);
   });
 
-  describe('Set Codigo', () => {
-    test('Debe introducir un código al pedido', () => {
-      expect(p1.getCodigo()).toEqual('01234');
+  describe('Get Codigo', () => {
+    test('Debe devolver el código del pedido', () => {
+      expect(pedido.getCodigo()).toEqual('01234');
     });
   });
 
   describe('Descripcion', () => {
-    test('Debe devolver la descripcion del menu', () => {
-      expect(spaghetti.getDescripcion())
-          .toEqual('Spaghetti con salsa de tomate');
+    test('Debe devolver la descripcion del pedido', () => {
+      expect(pedido.getDescripcion()).toEqual('Menu 1');
     });
   });
 
   describe('Fecha', () => {
-    test('Debe devolver el preecio del menu', () => {
-      expect(spaghetti.getPrecio()).toBe(250);
+    test('Debe devolver la fecha del pedido', () => {
+      expect(pedido.getFecha()).toEqual('18/06/2023');
     });
   });
 
   describe('Costo', () => {
-    test('Debe devolver el preecio del menu', () => {
-      expect(spaghetti.getPrecio()).toBe(250);
+    test('Debe devolver el costo del pedido', () => {
+      expect(pedido.getCosto()).toBe(200);
     });
   });
 });

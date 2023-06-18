@@ -21,24 +21,4 @@ export class Pedido {
   getCosto() {
     return this.costo;
   }
-
-  setCodigo(codPed) {
-    if (codPed.length = 5) {
-      this.codigo = codPed;
-    } else {
-      throw new Error('El código debe tener 5 caracteres');
-    }
-  }
-
-  setDescipcion(descrPed) {
-    this.pedido = descrPed;
-  }
-
-  setFecha(fechaPed) {
-    this.fecha = fechaPed;
-  }
-
-  setCosto(costoPed) {
-    this.costo = costoPed;
-  }
 }
