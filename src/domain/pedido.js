@@ -11,8 +11,15 @@ export class Pedido {
       return this.codigo;
     }
 
+    getFecha() {
+      return this.fecha;
+    }
+
     getCosto() {
       return this.costo;
     }
-  
+    
+    setCodigo(cod) {
+      this.codigo = cod;
+    }
   }
