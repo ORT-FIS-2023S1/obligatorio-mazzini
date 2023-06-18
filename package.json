@@ -7,16 +7,17 @@
     "doc": "docs"
   },
   "scripts": {
-    "compile": "sass --watch --no-source-map main.scss style.css"
+    "compile": "sass --watch --no-source-map main.scss style.css",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ORT-FIS-2023S1/obligatorio-ferreira-mazzini.git"
+    "url": "git+https://github.com/ORT-FIS-2023S1/obligatorio-mazzini.git"
   },
-  "author": "Mateo Mazzini / Guillermo Ferreira",
+  "author": "Mateo Mazzini",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ORT-FIS-2023S1/obligatorio-ferreira-mazzini/issues"
+    "url": "https://github.com/ORT-FIS-2023S1/obligatorio-mazzini/issues"
   },
   "homepage": "https://github.com/ORT-FIS-2023S1/obligatorio-ferreira-mazzini#readme",
   "dependencies": {
@@ -24,6 +25,8 @@
     "sass": "^1.63.4"
   },
   "devDependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-google": "^0.14.0",
     "jest": "^29.5.0"
   }
 }

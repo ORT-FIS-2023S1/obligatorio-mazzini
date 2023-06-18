@@ -1,45 +1,44 @@
-window.addEventListener("load", inicio);
+window.addEventListener('load', inicio);
 
-import { Menu } from "./domain/menu.js";
-import { Pedido } from "./domain/pedido.js";
- 
+import {Menu} from './domain/menu.js';
+import {Pedido} from './domain/pedido.js';
+
 function inicio() {
   // Paginas visibles/no-visibles
-  document.getElementById("navBar").style.display = 'block';
-  document.getElementById("homePage").style.display = 'block';
-  document.getElementById("menu").style.display = "none";
-  document.getElementById("carrito").style.display = "none";
-  document.getElementById("historial").style.display = "none";
+  document.getElementById('navBar').style.display = 'block';
+  document.getElementById('homePage').style.display = 'block';
+  document.getElementById('menu').style.display = 'none';
+  document.getElementById('carrito').style.display = 'none';
+  document.getElementById('historial').style.display = 'none';
   // Cambios de pagina
-  document.getElementById("hpMenuBtn").addEventListener("click", mostrarMenu);
-  document.getElementById("hpCarritoBtn").addEventListener("click", mostrarCarrito);
-  document.getElementById("hpHistorialBtn").addEventListener("click", mostrarHistorial);
-  document.getElementById("toHomePage").addEventListener("click", mostrarHomePage);
-  document.getElementById("menuNavbar").addEventListener("click", mostrarMenu);
-  document.getElementById("carritoNavbar").addEventListener("click", mostrarCarrito);
-  document.getElementById("historialNavbar").addEventListener("click", mostrarHistorial);
+  document.getElementById('hpMenuBtn').addEventListener('click', mostrarMenu);
+  document.getElementById('hpCarritoBtn').addEventListener('click', mostrarCarrito);
+  document.getElementById('hpHistorialBtn').addEventListener('click', mostrarHistorial);
+  document.getElementById('toHomePage').addEventListener('click', mostrarHomePage);
+  document.getElementById('menuNavbar').addEventListener('click', mostrarMenu);
+  document.getElementById('carritoNavbar').addEventListener('click', mostrarCarrito);
+  document.getElementById('historialNavbar').addEventListener('click', mostrarHistorial);
   // Botones del menu
-  document.getElementById("m1").addEventListener("click", agregarM1);
-  document.getElementById("m2").addEventListener("click", agregarM2);
-  document.getElementById("m3").addEventListener("click", agregarM3);
-  document.getElementById("m4").addEventListener("click", agregarM4);
-  document.getElementById("m5").addEventListener("click", agregarM5);
-  document.getElementById("realizarPedidoBtn").addEventListener("click", realizarPedido);
-  document.getElementById("cancelarPedidoBtn").addEventListener("click", cancelarPedido);
+  document.getElementById('m1').addEventListener('click', agregarM1);
+  document.getElementById('m2').addEventListener('click', agregarM2);
+  document.getElementById('m3').addEventListener('click', agregarM3);
+  document.getElementById('m4').addEventListener('click', agregarM4);
+  document.getElementById('m5').addEventListener('click', agregarM5);
+  document.getElementById('realizarPedidoBtn').addEventListener('click', realizarPedido);
+  document.getElementById('cancelarPedidoBtn').addEventListener('click', cancelarPedido);
 }
 
-
 // Navegación
-const homePage = document.getElementById("homePage");
-const menuPage = document.getElementById("menu");
-const carritoPage = document.getElementById("carrito");
-const historialPage = document.getElementById("historial");
+const homePage = document.getElementById('homePage');
+const menuPage = document.getElementById('menu');
+const carritoPage = document.getElementById('carrito');
+const historialPage = document.getElementById('historial');
 
 function ocultarTodasLasSecciones() {
-  homePage.style.display = "none";
-  menuPage.style.display = "none";
-  carritoPage.style.display = "none";
-  historialPage.style.display = "none";
+  homePage.style.display = 'none';
+  menuPage.style.display = 'none';
+  carritoPage.style.display = 'none';
+  historialPage.style.display = 'none';
 }
 
 function mostrarHomePage() {
@@ -61,15 +60,15 @@ function mostrarHistorial() {
   ocultarTodasLasSecciones();
   historialPage.style.display = 'block';
 }
-// Fin
+// Fin Navegación
 
 // Menús
-const ensalada = new Menu("Ensalada Crispy", "Ensalada de hojas verdes, tomátes y pollo rebosado", 200);
-const hamburguesa = new Menu("Hamburguesa", "Hamburguesa con lechuga, tomáte, queso y cebolla", 230);
-const sandwich = new Menu("Sandwich", "Sandwich de jamón, queso, tomáte y lechuga", 200);
-const spaghetti = new Menu("Spaghetti", "Spaghetti con salsa de tomate", 250);
-const empanadas = new Menu("Empanadas", "Empanadas de carne, capresse y verduras", 180);
-// Fin
+const ensalada = new Menu('Ensalada Crispy', 'Ensalada de hojas verdes, tomátes y pollo rebosado', 200);
+const hamburguesa = new Menu('Hamburguesa', 'Hamburguesa con lechuga, tomáte, queso y cebolla', 230);
+const sandwich = new Menu('Sandwich', 'Sandwich de jamón, queso, tomáte y lechuga', 200);
+const spaghetti = new Menu('Spaghetti', 'Spaghetti con salsa de tomate', 250);
+const empanadas = new Menu('Empanadas', 'Empanadas de carne, capresse y verduras', 180);
+// Fin Menús
 
 // Tabla Carrito
 function agregarEnCarrito(nombre, descripcion, precio) {
@@ -87,14 +86,14 @@ function agregarEnCarrito(nombre, descripcion, precio) {
 function agregarM1() {
   agregarEnCarrito(ensalada.nombre, ensalada.descripcion, ensalada.precio);
   precioTotal(ensalada.precio);
-  alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  alert('¡Tu menú ha sido agregado al carrito correctamente!');
   menuAPedido(ensalada.nombre, ensalada.precio);
 }
 
 function agregarM2() {
   agregarEnCarrito(hamburguesa.nombre, hamburguesa.descripcion, hamburguesa.precio);
   precioTotal(hamburguesa.precio);
-  alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  alert('¡Tu menú ha sido agregado al carrito correctamente!');
   menuAPedido(hamburguesa.nombre, hamburguesa.precio);
 }
 
@@ -119,7 +118,7 @@ function agregarM5() {
   menuAPedido(empanadas.nombre, empanadas.precio);
 }
 
-var totalActual = 0;
+let totalActual = 0;
 function precioTotal(precioMenu) {
   totalActual += precioMenu;
   document.getElementById("precioTotal").textContent = totalActual;
@@ -135,10 +134,9 @@ function cancelarPedido() {
   limpiarTablaCarrito();
   limpiarListas();
 }
-// Fin
+// Fin Tabla Carrito
 
 // Pedidos
-
 const pedidoDescripcion = [];
 const pedidoCosto = [];
 
@@ -154,13 +152,13 @@ function menuAPedido(descr, costo) {
   pedidoCosto.push(costo);
 }
 
-function recorroPedidoDescr() {
-  var descrPed = pedidoDescripcion.join(", ");
+function obtengoPedidoDescr() {
+  let descrPed = pedidoDescripcion.join(", ");
   return descrPed;
 }
 
-function recorroPedidoCosto() {
-  var total = 0;
+function obtengoPedidoCosto() {
+  let total = 0;
   for(let i = 0; i < pedidoCosto.length; i++) {
     total += pedidoCosto[i];
   }
@@ -168,10 +166,10 @@ function recorroPedidoCosto() {
 }
 
 function codigoRdm() {
-  var codigo = "";
+  let codigo = "";
   const caracteres = "0123456789";
   const caracteresLong = caracteres.length;
-  var contador = 0;
+  let contador = 0;
   while (contador < 5) {
     codigo += caracteres.charAt(Math.floor(Math.random() * caracteresLong));
     contador += 1;
@@ -181,19 +179,19 @@ function codigoRdm() {
 
 function fechaActual() {
   const fechaAct = new Date();
-  var dia = fechaAct.getDate();
-  var mes = fechaAct.getMonth() + 1;
-  var año = fechaAct.getFullYear();
-  var fechaRet = `${dia}/${mes}/${año}`;
+  let dia = fechaAct.getDate();
+  let mes = fechaAct.getMonth() + 1;
+  let año = fechaAct.getFullYear();
+  let fechaRet = `${dia}/${mes}/${año}`;
   return fechaRet;
 }
 
 function realizarPedido() {
   if(pedidoDescripcion.length > 0) {
     const codigoPed = codigoRdm();
-    const descrPed = recorroPedidoDescr();
+    const descrPed = obtengoPedidoDescr();
     const fechaPed = fechaActual();
-    const costoPed = recorroPedidoCosto();
+    const costoPed = obtengoPedidoCosto();
     
     const pedidoNuevo = new Pedido(codigoPed, descrPed, fechaPed, costoPed);
     agregarEnHistorial(pedidoNuevo.codigo, pedidoNuevo.descripcion, pedidoNuevo.fecha, pedidoNuevo.costo);
@@ -206,7 +204,7 @@ function realizarPedido() {
     alert("Pedido cancelado. ¡Tu carro está vacío!");
   }
 }
-// Fin
+// Fin Pedidos
 
 // Tabla Historial
 function agregarEnHistorial(codigoPed, descrPed, fechaPed, costoPed) {
@@ -222,4 +220,4 @@ function agregarEnHistorial(codigoPed, descrPed, fechaPed, costoPed) {
   fechaCell.textContent = fechaPed;
   costoCell.textContent = costoPed;
 }
-// Fin
+// Fin Tabla Historial
