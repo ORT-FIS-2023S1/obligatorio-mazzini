@@ -29,10 +29,6 @@ function inicio() {
 }
 
 
-
-
-
-
 // Navegación
 const homePage = document.getElementById("homePage");
 const menuPage = document.getElementById("menu");
