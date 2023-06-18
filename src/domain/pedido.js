@@ -23,8 +23,4 @@ export class Pedido {
     getCosto() {
       return this.costo;
     }
-    
-    setCodigo(cod) {
-      this.codigo = cod;
-    }
   }

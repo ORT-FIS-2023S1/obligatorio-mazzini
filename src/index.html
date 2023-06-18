@@ -184,7 +184,7 @@
           </tbody>
           <tfoot class="table table-secondary">
             <tr>
-              <th scope="row"></th>
+              <td></td>
               <th scope="row">Total:</th>
               <th scope="row" id="precioTotal">0</th>
             </tr>
@@ -193,7 +193,14 @@
       </div>
     </div>
     <div class="container text-center">
-      <button class="btn btn-primary btn-lg" id="pedidoBtn">Realizar pedido</button>
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-danger btn-lg gx-3" id="cancelarPedidoBtn">Cancelar pedido</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-primary btn-lg" id="realizarPedidoBtn">Realizar pedido</button>
+        </div>
+      </div>
     </div>
   </section>
   <!-- /Carrito -->

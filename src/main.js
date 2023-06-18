@@ -1,6 +1,5 @@
 window.addEventListener("load", inicio);
 
-import { Sistema } from "./domain/sistema.js";
 import { Menu } from "./domain/menu.js";
 import { Pedido } from "./domain/pedido.js";
  
@@ -25,31 +24,21 @@ function inicio() {
   document.getElementById("m3").addEventListener("click", agregarM3);
   document.getElementById("m4").addEventListener("click", agregarM4);
   document.getElementById("m5").addEventListener("click", agregarM5);
-  document.getElementById("pedidoBtn").addEventListener("click", realizarPedido);
+  document.getElementById("realizarPedidoBtn").addEventListener("click", realizarPedido);
+  document.getElementById("cancelarPedidoBtn").addEventListener("click", cancelarPedido);
 }
 
 
+
+
+
+
+// Navegación
 const homePage = document.getElementById("homePage");
 const menuPage = document.getElementById("menu");
 const carritoPage = document.getElementById("carrito");
 const historialPage = document.getElementById("historial");
 
-const listaMenus = [
-  {nombre: "Ensalada Crispy", descripcion: "Ensalada de hojas verdes, tomátes y pollo rebosado", precio: 200}, 
-  {nombre: "Hamburguesa", descripcion: "Hamburguesa con lechuga, tomáte, queso y cebolla", precio: 230}, 
-  {nombre: "Sandwich", descripcion: "Sandwich de jamón, queso, tomáte y lechuga", precio: 200}, 
-  {nombre: "Spaghetti", descripcion: "Spaghetti con salsa de tomate", precio: 250},
-  {nombre: "Empanadas", descripcion: "Empanadas de carne, capresse y verduras", precio: 180}
-];
-
-const ensalada = new Menu("Ensalada Crispy", "Ensalada de hojas verdes, tomátes y pollo rebosado", 200);
-const hamburguesa = new Menu("Hamburguesa", "Hamburguesa con lechuga, tomáte, queso y cebolla", 230);
-const sandwich = new Menu("Sandwich", "Sandwich de jamón, queso, tomáte y lechuga", 200);
-const spaghetti = new Menu("Spaghetti", "Spaghetti con salsa de tomate", 250);
-const empanadas = new Menu("Empanadas", "Empanadas de carne, capresse y verduras", 180);
-
-
-// Navegación
 function ocultarTodasLasSecciones() {
   homePage.style.display = "none";
   menuPage.style.display = "none";
@@ -76,6 +65,14 @@ function mostrarHistorial() {
   ocultarTodasLasSecciones();
   historialPage.style.display = 'block';
 }
+// Fin
+
+// Menús
+const ensalada = new Menu("Ensalada Crispy", "Ensalada de hojas verdes, tomátes y pollo rebosado", 200);
+const hamburguesa = new Menu("Hamburguesa", "Hamburguesa con lechuga, tomáte, queso y cebolla", 230);
+const sandwich = new Menu("Sandwich", "Sandwich de jamón, queso, tomáte y lechuga", 200);
+const spaghetti = new Menu("Spaghetti", "Spaghetti con salsa de tomate", 250);
+const empanadas = new Menu("Empanadas", "Empanadas de carne, capresse y verduras", 180);
 // Fin
 
 // Tabla Carrito
@@ -131,13 +128,20 @@ function precioTotal(precioMenu) {
   totalActual += precioMenu;
   document.getElementById("precioTotal").textContent = totalActual;
 }
-// Fin
 
 function limpiarTablaCarrito() {
   const tabla = document.getElementById("carritoTabla");
   document.getElementById("precioTotal").textContent = 0;
   tabla.innerHTML = "";
 }
+
+function cancelarPedido() {
+  limpiarTablaCarrito();
+  limpiarListas();
+}
+// Fin
+
+// Pedidos
 
 const pedidoDescripcion = [];
 const pedidoCosto = [];
@@ -189,20 +193,24 @@ function fechaActual() {
 }
 
 function realizarPedido() {
-  const codigoPed = codigoRdm();
-  const descrPed = recorroPedidoDescr();
-  const fechaPed = fechaActual();
-  const costoPed = recorroPedidoCosto();
-  
-  const pedidoNuevo = new Pedido(codigoPed, descrPed, fechaPed, costoPed);
+  if(pedidoDescripcion.length > 0) {
+    const codigoPed = codigoRdm();
+    const descrPed = recorroPedidoDescr();
+    const fechaPed = fechaActual();
+    const costoPed = recorroPedidoCosto();
+    
+    const pedidoNuevo = new Pedido(codigoPed, descrPed, fechaPed, costoPed);
+    agregarEnHistorial(pedidoNuevo.codigo, pedidoNuevo.descripcion, pedidoNuevo.fecha, pedidoNuevo.costo);
 
-  agregarEnHistorial(pedidoNuevo.codigo, pedidoNuevo.descripcion, pedidoNuevo.fecha, pedidoNuevo.costo);
+    limpiarTablaCarrito();
+    limpiarListas();
 
-  limpiarTablaCarrito();
-  limpiarListas();
-  alert("¡Su pedido ha sido realizado con éxito!");
+    alert("¡Su pedido ha sido realizado con éxito!");
+  } else {
+    alert("Pedido cancelado. ¡Tu carro está vacío!");
+  }
 }
-
+// Fin
 
 // Tabla Historial
 function agregarEnHistorial(codigoPed, descrPed, fechaPed, costoPed) {
@@ -218,3 +226,4 @@ function agregarEnHistorial(codigoPed, descrPed, fechaPed, costoPed) {
   fechaCell.textContent = fechaPed;
   costoCell.textContent = costoPed;
 }
+// Fin
