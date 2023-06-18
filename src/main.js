@@ -1,6 +1,8 @@
 window.addEventListener("load", inicio);
 
-import { Pedido } from "../src/domain/pedido";
+import { Sistema } from "./domain/sistema.js";
+import { Menu } from "./domain/menu.js";
+import { Pedido } from "./domain/pedido.js";
  
 function inicio() {
   // Paginas visibles/no-visibles
@@ -23,7 +25,9 @@ function inicio() {
   document.getElementById("m3").addEventListener("click", agregarM3);
   document.getElementById("m4").addEventListener("click", agregarM4);
   document.getElementById("m5").addEventListener("click", agregarM5);
+  document.getElementById("pedidoBtn").addEventListener("click", realizarPedido);
 }
+
 
 const homePage = document.getElementById("homePage");
 const menuPage = document.getElementById("menu");
@@ -37,6 +41,12 @@ const listaMenus = [
   {nombre: "Spaghetti", descripcion: "Spaghetti con salsa de tomate", precio: 250},
   {nombre: "Empanadas", descripcion: "Empanadas de carne, capresse y verduras", precio: 180}
 ];
+
+const ensalada = new Menu("Ensalada Crispy", "Ensalada de hojas verdes, tomátes y pollo rebosado", 200);
+const hamburguesa = new Menu("Hamburguesa", "Hamburguesa con lechuga, tomáte, queso y cebolla", 230);
+const sandwich = new Menu("Sandwich", "Sandwich de jamón, queso, tomáte y lechuga", 200);
+const spaghetti = new Menu("Spaghetti", "Spaghetti con salsa de tomate", 250);
+const empanadas = new Menu("Empanadas", "Empanadas de carne, capresse y verduras", 180);
 
 
 // Navegación
@@ -82,33 +92,38 @@ function agregarEnCarrito(nombre, descripcion, precio) {
 }
 
 function agregarM1() {
-  agregarEnCarrito(listaMenus[0].nombre, listaMenus[0].descripcion, listaMenus[0].precio);
-  precioTotal(listaMenus[0].precio);
+  agregarEnCarrito(ensalada.nombre, ensalada.descripcion, ensalada.precio);
+  precioTotal(ensalada.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  menuAPedido(ensalada);
 }
 
 function agregarM2() {
-  agregarEnCarrito(listaMenus[1].nombre, listaMenus[1].descripcion, listaMenus[1].precio);
-  precioTotal(listaMenus[1].precio);
+  agregarEnCarrito(hamburguesa.nombre, hamburguesa.descripcion, hamburguesa.precio);
+  precioTotal(hamburguesa.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  menuAPedido(hamburguesa);
 }
 
 function agregarM3() {
-  agregarEnCarrito(listaMenus[2].nombre, listaMenus[2].descripcion, listaMenus[2].precio);
-  precioTotal(listaMenus[2].precio);
+  agregarEnCarrito(sandwich.nombre, sandwich.descripcion, sandwich.precio);
+  precioTotal(sandwich.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  menuAPedido(sandwich);
 }
 
 function agregarM4() {
-  agregarEnCarrito(listaMenus[3].nombre, listaMenus[3].descripcion, listaMenus[3].precio);
-  precioTotal(listaMenus[3].precio);
+  agregarEnCarrito(spaghetti.nombre, spaghetti.descripcion, spaghetti.precio);
+  precioTotal(spaghetti.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  menuAPedido(spaghetti);
 }
 
 function agregarM5() {
-  agregarEnCarrito(listaMenus[4].nombre, listaMenus[4].descripcion, listaMenus[4].precio);
-  precioTotal(listaMenus[4].precio);
+  agregarEnCarrito(empanadas.nombre, empanadas.descripcion, empanadas.precio);
+  precioTotal(empanadas.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
+  menuAPedido(empanadas);
 }
 
 var totalActual = 0;
@@ -118,10 +133,26 @@ function precioTotal(precioMenu) {
 }
 // Fin
 
+function menuAPedido(m) {
+  pedido.push(m);
+}
+
 const pedido = [{}];
 function realizarPedido() {
-
+  
+  const pedidoNuevo = new Pedido();
 }
 
 
 // Tabla Historial
+function agregarEnHistorial(codPed, descripcion, precio) {
+  const carritoTabla = document.getElementById('carritoTabla');
+  const filaNueva = carritoTabla.insertRow();
+  const menuCell = filaNueva.insertCell();
+  const descrCell = filaNueva.insertCell();
+  const precioCell = filaNueva.insertCell();
+
+  menuCell.textContent = nombre;
+  descrCell.textContent = descripcion;
+  precioCell.textContent = precio;
+}
