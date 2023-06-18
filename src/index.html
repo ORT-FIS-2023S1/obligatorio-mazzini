@@ -20,7 +20,9 @@
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark py-3" style="background-color: #1B5E20;" id="navBar">
     <div class="container"> <!-- El container contiene el contenido de la navBar en un contenedor en el medio, impidiendo que se extienda a todo el largo de la pagina -->
-      <a class="navbar-brand" id="toHomePage" role="button" href="#">Comedor Escolar</a> <!-- Titulo principal de la navBar -->
+      <a class="navbar-brand" id="toHomePage" role="button" href="#">
+        <h1>Comedor Escolar</h1>
+      </a> <!-- Titulo principal de la navBar -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
         <span class="navbar-toggler-icon"></span> <!-- Agrega icono al boton del toggler -->
       </button>
@@ -201,16 +203,16 @@
     <div class="container-sm  text-center py-3">
       <div class="card bg-secondary text-light">
         <h1 class="card-header">Historial de pedidos</h1>
-        <table class="table table-responsive-lg" id="historialTabla">
+        <table class="table table-responsive-lg">
           <thead class="table table-secondary">
             <tr>
               <th scope="col">Código</th>
-              <th scope="col">Menú</th>
               <th scope="col">Descripción</th>
-              <th scope="col">Precio</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Costo</th>
             </tr>
           </thead>
-          <tbody class="table table-primary ">
+          <tbody class="table table-primary"  id="historialTabla">
           </tbody>
         </table>
       </div>

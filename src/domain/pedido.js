@@ -1,14 +1,19 @@
 
 export class Pedido {
 
-    constructor(codigoPed, fechaPed, costoPed) {
+    constructor(codigoPed, descrPed, fechaPed, costoPed) {
       this.codigo = codigoPed;
+      this.descripcion = descrPed;
       this.fecha = fechaPed;
       this.costo = costoPed
     }
-  
+
     getCodigo() {
       return this.codigo;
+    }
+
+    getDescripcion() {
+      return this.descripcion;
     }
 
     getFecha() {

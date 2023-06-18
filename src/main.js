@@ -95,35 +95,35 @@ function agregarM1() {
   agregarEnCarrito(ensalada.nombre, ensalada.descripcion, ensalada.precio);
   precioTotal(ensalada.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
-  menuAPedido(ensalada);
+  menuAPedido(ensalada.nombre, ensalada.precio);
 }
 
 function agregarM2() {
   agregarEnCarrito(hamburguesa.nombre, hamburguesa.descripcion, hamburguesa.precio);
   precioTotal(hamburguesa.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
-  menuAPedido(hamburguesa);
+  menuAPedido(hamburguesa.nombre, hamburguesa.precio);
 }
 
 function agregarM3() {
   agregarEnCarrito(sandwich.nombre, sandwich.descripcion, sandwich.precio);
   precioTotal(sandwich.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
-  menuAPedido(sandwich);
+  menuAPedido(sandwich.nombre, sandwich.precio);
 }
 
 function agregarM4() {
   agregarEnCarrito(spaghetti.nombre, spaghetti.descripcion, spaghetti.precio);
   precioTotal(spaghetti.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
-  menuAPedido(spaghetti);
+  menuAPedido(spaghetti.nombre, spaghetti.precio);
 }
 
 function agregarM5() {
   agregarEnCarrito(empanadas.nombre, empanadas.descripcion, empanadas.precio);
   precioTotal(empanadas.precio);
   alert("¡Tu menú ha sido agregado al carrito correctamente!");
-  menuAPedido(empanadas);
+  menuAPedido(empanadas.nombre, empanadas.precio);
 }
 
 var totalActual = 0;
@@ -133,26 +133,88 @@ function precioTotal(precioMenu) {
 }
 // Fin
 
-function menuAPedido(m) {
-  pedido.push(m);
+function limpiarTablaCarrito() {
+  const tabla = document.getElementById("carritoTabla");
+  document.getElementById("precioTotal").textContent = 0;
+  tabla.innerHTML = "";
 }
 
-const pedido = [{}];
+const pedidoDescripcion = [];
+const pedidoCosto = [];
+
+function limpiarListas() {
+  while(pedidoDescripcion.length > 0){
+    pedidoDescripcion.pop();
+    pedidoCosto.pop();
+  }
+}
+
+function menuAPedido(descr, costo) {
+  pedidoDescripcion.push(descr);
+  pedidoCosto.push(costo);
+}
+
+function recorroPedidoDescr() {
+  var descrPed = pedidoDescripcion.join(", ");
+  return descrPed;
+}
+
+function recorroPedidoCosto() {
+  var total = 0;
+  for(let i = 0; i < pedidoCosto.length; i++) {
+    total += pedidoCosto[i];
+  }
+  return total;
+}
+
+function codigoRdm() {
+  var codigo = "";
+  const caracteres = "0123456789";
+  const caracteresLong = caracteres.length;
+  var contador = 0;
+  while (contador < 5) {
+    codigo += caracteres.charAt(Math.floor(Math.random() * caracteresLong));
+    contador += 1;
+  }
+  return codigo;
+}
+
+function fechaActual() {
+  const fechaAct = new Date();
+  var dia = fechaAct.getDate();
+  var mes = fechaAct.getMonth() + 1;
+  var año = fechaAct.getFullYear();
+  var fechaRet = `${dia}/${mes}/${año}`;
+  return fechaRet;
+}
+
 function realizarPedido() {
+  const codigoPed = codigoRdm();
+  const descrPed = recorroPedidoDescr();
+  const fechaPed = fechaActual();
+  const costoPed = recorroPedidoCosto();
   
-  const pedidoNuevo = new Pedido();
+  const pedidoNuevo = new Pedido(codigoPed, descrPed, fechaPed, costoPed);
+
+  agregarEnHistorial(pedidoNuevo.codigo, pedidoNuevo.descripcion, pedidoNuevo.fecha, pedidoNuevo.costo);
+
+  limpiarTablaCarrito();
+  limpiarListas();
+  alert("¡Su pedido ha sido realizado con éxito!");
 }
 
 
 // Tabla Historial
-function agregarEnHistorial(codPed, descripcion, precio) {
-  const carritoTabla = document.getElementById('carritoTabla');
+function agregarEnHistorial(codigoPed, descrPed, fechaPed, costoPed) {
+  const carritoTabla = document.getElementById('historialTabla');
   const filaNueva = carritoTabla.insertRow();
-  const menuCell = filaNueva.insertCell();
+  const codigoCell = filaNueva.insertCell();
   const descrCell = filaNueva.insertCell();
-  const precioCell = filaNueva.insertCell();
+  const fechaCell = filaNueva.insertCell();
+  const costoCell = filaNueva.insertCell();
 
-  menuCell.textContent = nombre;
-  descrCell.textContent = descripcion;
-  precioCell.textContent = precio;
+  codigoCell.textContent = codigoPed;
+  descrCell.textContent = descrPed;
+  fechaCell.textContent = fechaPed;
+  costoCell.textContent = costoPed;
 }
