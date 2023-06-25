@@ -21,11 +21,20 @@ Las ramas utilizadas fueron las siguientes:
 
 A lo largo del proyecto surgieron necesidades como el cambio de colores primario y secundario, y otras varias, que fueron resueltas
 mediante la instalación de dependencias. 
+
+>Para la instalación y prueba de dependencias utilicé la rama *"feature/installingDependencies"*. 
+
 Las dependencias utilizadas en el proyecto fueron:
-- Bootstrap: 
+- **Bootstrap:** Framework utilizado para el desarrollo front-end.
+- **SASS:** Para realizar cambios en variables pre-definidas de bootstrap y traducirlo a css.
+- **ESlint:** Lintter (analizador de código) utilizado para corregir la sintáxis del código en base a guías de estilo.
+- **Babel:** Compilador de código que traduce formatos.
+- **Jest:** Framework de testing unitario, para realizar pruebas unitarias en las clases.
+
+>Las dependencias traen de la mano una lista de otras dependencias que son instaladas automáticamente para poder funcionar.
 
 ## Interfaz de usuario
-El desarrollo de la interfaz de usuario fue realizado principalmente en la rama "feature/tabs", donde me centré en el desarrollo de las diferentes ventanas de navegación.
+El desarrollo de la interfaz de usuario fue realizado principalmente en la rama *"feature/tabs"*, donde me centré en el desarrollo de las diferentes ventanas de navegación.
 Está presente el uso del framework Bootstrap, que facilita componentes visuales agradables tanto para la interfaz como para la facilidad de su implementación.
 
 Las ventanas en el documento de html están divididas por secciones: 
@@ -45,15 +54,44 @@ Las ventanas en el documento de html están divididas por secciones:
 - Historial de pedidos: La ventana del historial contiene una tabla donde aparecen los pedidos realizados por el usuario en el tiemp,
     organizados por fecha, nombres de menús, un código, y un código.
 
-Algo que unifica las diferentes ventanas y prevalece a lo largo del sistema, es la paleta de colores, en la cual, a través de una dependencia llamada SASS, pude modificar las variables de colores de bootstrap, re-asignando los colores primario al código del Green 900 y secundario
-al código de Light Blue 800, facilitando su aplicación a través de el tag primary y secondary.
-Esta dependencia trabaja en un archivo de tipo sass o scss que modifica los atributos y variables pre-definidos de bootstrap, a través del
-archivo de css principal.
-
-
+Algo que unifica las diferentes ventanas y prevalece a lo largo del sistema, es la paleta de colores, en la cual, a través de la dependencia SASS anteriormente mencionada, pude modificar las variables de colores de bootstrap, re-asignando los colores primario al código del *Green 900*
+y secundario al código de *Light Blue 800*, facilitando su aplicación a través de los tags *primary* y *secondary*, respectivamente.
+Esta dependencia trabaja en un archivo de tipo sass o scss que modifica los atributos y variables pre-definidos de bootstrap, traduciendo estos
+cambios a css, ya que en el documento html solo se puede linkear como stylesheet un archivo css, y no uno sass.
 
 ## Codificación
+La codificación fue realizada en la branch *"feature/workingOnJs"*, donde realicé la implementación de las clases "Menu" y "Pedido", y la implementación de las funciones que conectan y dan funcionalidad a la página y sus secciones.
+
+**Organización:** 
+- Clases: Las clases cuentan con sus constructores y getters. En el momento de implementarlas me surgieron problemas de compatibilidad que
+    impidieron su correcta importación para darles uso dentro del archivo de main.js, por lo que tuve que tomar la decisión de realizar la mayoría del desarrollo y funciones dentro del mismo archivo.
+    - Menu: La clase Menu contiene constructor y getters.
+    - Pedido: La clase Pedido contiene constructor y getters.
+- Main.js: Debido al problema mencionado anteriormente, para no perder un formato, organicé el archivo en secciones de código marcadas por
+    comentarios. Cada sección se enfoca en una sección diferernte de la página, una para la homepage, una para la barra de navegación, 
+    una para el menú, una para el carrito y otra para el historial de pedidos.
+    En este archivo realicé las conexiones entre las funcionalidades de toda la interfaz.
+
+>El problema mencionado arriba fue finalmente solucionado después de finalizado el proyecto, por lo que no conté con el tiempo necesario 
+para reestructurar el código.
+
+**Estilo:** A través de la configuración de ESlint corregí la sintáxis en base a la Google Style Guide, respetando los formatos de indentación
+    de 2 espacios, la máxima cantidad de caracteres por línea de 80, etcétera.
+    Esta herramienta se hacía cargo de alertarme en caso de tener errores sintácticos a medida que escribía mi código.
 
 ## Test unitario
+Para los tests unitarios usé el framework Jest definido en clase. Realizados los tests para cada función de las clases,
+conseguí una cobertura del %100 de ambas clases.
+Lamentablemente por el problema que me surgió al momento de la implementación de las clases, no tuve la oportunidad de crear tests para 
+funciones diferentes de las de los getters.
+
+![Code Coverage](/docs/Im%C3%A1genes%20informe%202/codeCoverage.png "Jest")
 
 ## Reflexión
+Como reflexiópn puedo decir que hoy en día conozco la importancia de un desarrollo prolijo en todos sus aspectos. Gracias a las guías
+de estilo es posible mantener un formato entendible a lo largo de todos los archivos, facilitando su modificación e interpretación
+de ser necesario.
+Por otro lado, al terminar el proyecto, doy cuenta de el conocimiento adquirido sobre todos los pasos necesarios para poder
+utilizar dependencias diferentes y la gran ayuda que estas pueden brindar para el cumplimiento de objetivos.
+Por mi parte siento que ha sido muy fructifero para aprender y entender el proceso de desarrollo completo de una aplicación y las
+diferentes instancias que este conlleva.
