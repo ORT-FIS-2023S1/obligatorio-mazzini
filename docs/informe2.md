@@ -43,14 +43,17 @@ Las ventanas en el documento de html están divididas por secciones:
   - Botones de navegación: sector donde se encuentran los tres botones principales para realizar la navegación hacia las otras ventanas desde 
     la home page. Estos botones fueron agregados utilizando el layout de columnas que provee bootstrap.
     Este atributo permite organizar la interfaz en columnas de diferentes tamaños, donde va a estar distribuido el contenido. La interfaz organizada en columnas de bootstrap también permite a través de parámetros, hacerla responsiva para los diferentes tamaños de pantalla, de manera que al llegar a un determinado tamaño en pixeles (breakpoint), se re-organiza el contenido, sin perder su forma original ni acumularse una cosa encima de otra.
+
 - Menú: En la página del menú mi objetivo fue organizar las diferentes opciones en una especie de grilla, algo similar a lo que se puede
     encontrar en varios e-commerce. 
     Para el diseño busqué imágenes con un formato similar entre sí, una foto de una comida en formato png y con fondo transparete. 
     Luego utilicé dos de los componentes de bootstrap en forma simultánea, las columnas para organizar las opciones, y las opciones de menú 
     fueron creadas dentro de "cards" o tarjetas, que resulta ser un componente amigable para este tipo de elementos. Las tarjetas de bootstrap 
     tienen un formato de organización basado en header, body y footer, donde se puede elegir que poner en cada uno. En mi caso dentro del header coloqué las fotos de la comida y elegí un fondo amarillo intenso para llamar la atención y mantener el mismo formato en todas. Luego en el body trabajé con los nombres de los menús y sus precios. Finalmente en el footer agregué el botón de añadir al carrito.
+
 - Carrito: La página de carrito contiene una tabla organizada por nombre de menú, una breve descripción de los ingredientes, el precio del menú 
     y al final de la tabla, el costo total de los menús seleccionados.
+
 - Historial de pedidos: La ventana del historial contiene una tabla donde aparecen los pedidos realizados por el usuario en el tiemp,
     organizados por fecha, nombres de menús, un código, y un código.
 
@@ -67,6 +70,7 @@ La codificación fue realizada en la branch *"feature/workingOnJs"*, donde reali
     impidieron su correcta importación para darles uso dentro del archivo de main.js, por lo que tuve que tomar la decisión de realizar la mayoría del desarrollo y funciones dentro del mismo archivo.
     - Menu: La clase Menu contiene constructor y getters.
     - Pedido: La clase Pedido contiene constructor y getters.
+
 - Main.js: Debido al problema mencionado anteriormente, para no perder un formato, organicé el archivo en secciones de código marcadas por
     comentarios. Cada sección se enfoca en una sección diferernte de la página, una para la homepage, una para la barra de navegación, 
     una para el menú, una para el carrito y otra para el historial de pedidos.
